@@ -148,6 +148,8 @@
             .bghover:hover{
                 background-color:#d7d7d7;
             }
+
+          
             
         /*jssor slider loading skin spin css*/
         .jssorl-009-spin img {
@@ -248,12 +250,18 @@
             /*#endregion responsive code end*/
         };
     </script> 
+    <!-- carousel here -->
+
+
+
+
+  
 
 
 
     <!-- navbar styling starts here    -->
         <div class="container-fluid bgimg" >
-            <br><br><br><br><br><br><br><br><br>
+            
             <b><h1 class="txt">FOOD SHOP</h1> </b>
             <p class="txt">The biggest online food store!</p> 
         
@@ -266,34 +274,7 @@
                         </div>
                         <ul class="nav navbar-nav" style="text-indent:0%">
                             <li class=""><a href="home.php">Home</a></li>
-                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                            <li>
-                                <form class="bghover" id="genreForm" action="changeGenre.php" method="post">
-                                    <input type="hidden" value="1" name="genreq">
-                                    <a style="padding:8px;" href="javascript: submitform()">Fiction</a>
-                                </form>
-                            </li>
-                            <li>
-                                <form class="bghover" id="genreForm" action="changeGenre.php" method="post">
-                                    <input type="hidden" value="2" name="genreq">
-                                    <a style="padding:8px;" href="javascript: submitform()">Thriller</a>
-                                </form>
-                            </li>
-                            <li>
-                                <form class="bghover" id="genreForm" action="changeGenre.php" method="post">
-                                    <input type="hidden" value="3" name="genreq">
-                                    <a style="padding:8px;" href="javascript: submitform()">Classics</a>
-                                </form>
-                            </li>
-                            <li>
-                                <form class="bghover" id="genreForm" action="changeGenre.php" method="post">
-                                    <input type="hidden" value="4" name="genreq">
-                                    <a style="padding:8px;" href="javascript: submitform()">Novel</a>
-                                </form>
-                            </li>
-
-                            </ul>
+                            <li class="dropdown"><a   href="#">Menu <span class="caret"></span></a>
                             </li>
                             
                            
@@ -319,7 +300,7 @@
         <!--Modal Content-->
        
          
-        <div style="background-color: rgb(0, 0, 0); color:rgb(0, 0, 0)">
+        <div style="background-color: rgb(107, 101, 101); color:rgb(0, 0, 0)">
             
             <div class="container-fluid" id="contain">                
                 <br><br>
@@ -330,44 +311,15 @@
 
 
 <!-- carousel here -->
-                
-                    <br><h3 style="color:white">Your Menu Card is here </h3>
-                    <div id="jssor_1" style="position:relative;margin-top:50px;margin-left:40px;top:0px;left:0px;width:800px;height:300px;overflow:hidden;visibility:hidden;">
-                    <!-- Loading Screen -->
-                        <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-                            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
-                        </div>
-                        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1000px;height:240px;overflow:hidden;">
-                                                          
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="'.$row5["imgUrl"].'" />
-                                    </div>';
-                                    
-                        </div>
-                        <!-- Bullet Navigator -->
-                        <div data-u="navigator" class="jssorb057" style="position:absolute; bottom:12px; right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
-                            <div data-u="prototype" class="i" style="width:16px; height:16px;">
-                                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                                    <circle class="b" cx="8000" cy="8000" r="5000"></circle>
-                                </svg>
-                            </div>
-                        </div>
-                        <!-- Arrow Navigator -->
-                        <div data-u="arrowleft" class="jssora073" style="width:50px;height:50px;top:0px;left:30px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
-                            <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                                <path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z"></path>
-                            </svg>
-                        </div>
-                        <div data-u="arrowright" class="jssora073" style="width:50px;height:50px;top:0px;right:30px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
-                            <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                                <path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <script type="text/javascript">jssor_1_slider_init();</script>
-                    <!-- #endregion Jssor Slider End -->
-               
-<!-- carousel end -->
+
+
+
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+ 
+
 
 
                 
@@ -380,7 +332,52 @@
                                         <form>
                                             <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
                                                 <div class="row image">
-                                                    <span><img class="img-responsive" style="width:100%; height: 100%;" src = "'.($row["imgUrl"]).'"></span>
+                                                    <span><img class="img-responsive" style="width:100%; height: 100%;" src = "image1.jpeg"></span>
+                                                </div>
+                                                <div class = "row desc">
+                                                    <p class="title">sdgfh</p>
+                                                    <p class="det">wdehf</p>
+                                                    <p class="det">
+                                                
+                                                    </p>
+                                                </div>
+                                                <button style="width:240px;margin-left:-27px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View Book!</button>
+                                            </div>
+                                        </form>
+                                        <form>
+                                            <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
+                                                <div class="row image">
+                                                    <span><img class="img-responsive" style="width:100%; height: 100%;" src = "imaage2.jpg"></span>
+                                                </div>
+                                                <div class = "row desc">
+                                                    <p class="title">sdgfh</p>
+                                                    <p class="det">wdehf</p>
+                                                    <p class="det">
+                                                
+                                                    </p>
+                                                </div>
+                                                <button style="width:240px;margin-left:-27px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View Book!</button>
+                                            </div>
+                                        </form>
+                                        <form>
+                                            <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
+                                                <div class="row image">
+                                                    <span><img class="img-responsive" style="width:100%; height: 100%;" src = "image3.jpg"></span>
+                                                </div>
+                                                <div class = "row desc">
+                                                    <p class="title">sdgfh</p>
+                                                    <p class="det">wdehf</p>
+                                                    <p class="det">
+                                                
+                                                    </p>
+                                                </div>
+                                                <button style="width:240px;margin-left:-27px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View Book!</button>
+                                            </div>
+                                        </form>
+                                        <form>
+                                            <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
+                                                <div class="row image">
+                                                    <span><img class="img-responsive" style="width:100%; height: 100%;" src = "image4.jpg"></span>
                                                 </div>
                                                 <div class = "row desc">
                                                     <p class="title">sdgfh</p>
@@ -393,7 +390,7 @@
                                             </div>
                                         </form>
                         
-                                        <div class="col-sm-1 blank"></div>';
+                                        <div class="col-sm-1 blank"></div>
              
                                     </div>
           
