@@ -1,3 +1,47 @@
+<?php
+session_start();
+error_reporting(0);
+$username = "root";
+$password = "";
+$database = "food_item";
+$con = mysqli_connect("localhost",$username,$password,$database);
+if(!$con){
+    die("Connection failed: ".mysqli_connect_error());
+}
+
+if(isset($_POST['username'])){
+    $uname = $_POST['username'];
+        $sql = "SELECT * FROM users WHERE username='".$uname."'  limit 1";
+    
+    $result = mysqli_query($con,$sql);
+    if(!empty($result)){
+        $row = mysqli_fetch_assoc($result);
+        if(!$row) {
+            session_destroy();
+            echo "Select appropriate option between Seller or Customer!";
+            exit();
+        }
+        $_SESSION["username"] = $row["username"];
+        if($_POST['isSeller'] == 'false') {
+            $_SESSION["user_id"]=$row['customer_id'];
+            $_SESSION["usertype"] = "customer";
+        }  
+        else if($_POST["isSeller"] == 'true') {
+            $_SESSION["user_id"]=$row['seller_id'];
+            $_SESSION["usertype"] = "seller";
+        } 
+           
+        header("Location: home.php");
+        exit();
+    }
+    else {
+        session_destroy();
+        echo "Incorrect Login Details";
+        exit();
+    }
+    
+
+}
 <!DOCTYPE html>
 <html>
     <head>
@@ -110,9 +154,7 @@
                 border-radius:3px;
                 font-size:16px;
             }
-            .btn btn-primary det{
-                background-color:rgb(196, 21, 212);
-            }
+            
             .loginbtn:hover{
                 color:rgb(196, 21, 212);
                 background-color:rgb(196, 21, 212);

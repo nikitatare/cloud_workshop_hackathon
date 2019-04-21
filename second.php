@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+          $username = "root";
+          $password = "";
+          $database = "food_shop";
+          $con = mysqli_connect("localhost",$username,$password,$database);
+     if(!$con){
+         die("Connection failed: ".mysqli_connect_error());
+     }
+    
+  ?>
+ <!DOCTYPE html>
 <html>
     <head>
         <title>Food Shop</title>
@@ -249,18 +259,6 @@
 
 
 
-<div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
-                                                <div class="row image">
-                                                    <span><img class="img-responsive" style="width:100%; height: 50%;" src = "image1.jpeg"></span>
-                                                    <div class = "row desc">
-                                                        <p class="title">sdgfh</p>
-                                                        <p class="det">wdehf</p>
-                                                        <p class="det">
-                                                        </p>
-                                                        <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View</button>
-                                                    </div>
-                                                    
-                                                </div>
 <div id="demo" class="carousel slide" data-ride="carousel">
 
   <!-- Indicators -->
@@ -268,20 +266,37 @@
                         <br>
                                                 
                                     <div class="row vertical-dist-between-tiles">';
+                                     
                       
                                    
                                         
                                         <form>
-                                            <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
+                                        <?php
+                                            $sql = "SELECT * FROM food_items WHERE purchase_id = 1";
+                                            $result = mysqli_query($con, $sql);
+                                            $row = mysqli_fetch_array($result);
+                                        $pid = $row['purchase_id'];
+                                         ?> 
+                                            <div class="col-sm-2 tile" name="itemID" type="submit" value="<?php echo $row['purchase_id'] ?>" >
                                                 <div class="row image">
                                                     <span><img class="img-responsive" style="width:100%; height: 50%;" src = "image1.jpeg"></span>
                                                     <div class = "row desc">
-                                                        <p class="title">sdgfh</p>
-                                                        <p class="det">wdehf</p>
+                                                        <?php
+                                            $sql1 = "SELECT item_name FROM food_items WHERE purchase_id = 1";
+                                            $result1 = mysqli_query($con, $sql1);
+                                            $itemname = $result1->fetch_assoc();
+
+
+                                            $sql2 = "SELECT cost FROM food_items WHERE purchase_id = 1";
+                                            $result2 = mysqli_query($con, $sql2);
+                                            $itemcost = $result2->fetch_assoc();    
+                                            echo '
+                                                    <p class="title">'.($itemname['item_name']).'</p>
+                                                        <p class="det">'.($itemcost['cost']).'</p>
                                                         <p class="det">
                                                         </p>
-                                                        <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View</button>
-                                                    </div>
+                                                        <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="itemID" value="'.$pid.'">View</button>
+                                                    </div> ' ?>
                                                     
                                                 </div>
                                             </div>

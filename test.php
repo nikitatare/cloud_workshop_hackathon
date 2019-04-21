@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+          $username = "root";
+          $password = "";
+          $database = "food_shop";
+          $con = mysqli_connect("localhost",$username,$password,$database);
+     if(!$con){
+         die("Connection failed: ".mysqli_connect_error());
+     }
+    
+  ?>
+ <!DOCTYPE html>
 <html>
     <head>
         <title>Food Shop</title>
@@ -249,18 +259,6 @@
 
 
 
-<div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
-                                                <div class="row image">
-                                                    <span><img class="img-responsive" style="width:100%; height: 50%;" src = "image1.jpeg"></span>
-                                                    <div class = "row desc">
-                                                        <p class="title">sdgfh</p>
-                                                        <p class="det">wdehf</p>
-                                                        <p class="det">
-                                                        </p>
-                                                        <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View</button>
-                                                    </div>
-                                                    
-                                                </div>
 <div id="demo" class="carousel slide" data-ride="carousel">
 
   <!-- Indicators -->
@@ -268,72 +266,38 @@
                         <br>
                                                 
                                     <div class="row vertical-dist-between-tiles">';
-                      
-                                   
                                         
-                                        <form>
-                                            <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
-                                                <div class="row image">
-                                                    <span><img class="img-responsive" style="width:100%; height: 50%;" src = "image1.jpeg"></span>
-                                                    <div class = "row desc">
-                                                        <p class="title">sdgfh</p>
-                                                        <p class="det">wdehf</p>
-                                                        <p class="det">
-                                                        </p>
-                                                        <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View</button>
-                                                    </div>
-                                                    
+                                            <?php 
+                                                $sqlq = "SELECT * FROM food_items";
+                                                $resultq = mysqli_query($con, $sqlq);
+                                                //$num_items = mysqli_num_rows($resultq);
+                                                for($i=0; $i<5; $i++){
+                                                    $row = mysqli_fetch_array($resultq);
+                                                    $pid = $row['purchase_id'];
+
+                                                $sqlq1 = "SELECT cost, item_name FROM food_items WHERE purchase_id = ".$row['purchase_id'];
+                                                $result = mysqli_query($con, $sqlq1);
+                                                $itemdetails = $result->fetch_assoc();
+                                                
+
+                                            echo '
+                                            <form>
+                                            <div class="col-sm-2 tile" name="itemID" type="submit" value="'.$pid.'" >
+                                                  <div class="row image">
+                                                        <span><img class="img-responsive" style="width:100%; height: 50%;" src = "'.($row["image_url"]).'"></span>
+                                                     <div class = "row desc">
+                                                         <p class="title">'.($itemdetails['item_name']).'</p>
+                                                         <p class="det">'.($itemdetails['cost']).'</p>
+                                                         <p class="det">
+                                                         </p>
+                                                         <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$pid.'">View</button>
+                                                     </div>
                                                 </div>
                                             </div>
-                                            </form>
-                                    
-                                            <form>
-                                            <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
-                                                <div class="row image">
-                                                    <span><img class="img-responsive" style="width:100%; height: 50%;" src = "imaage2.jpg"></span>
-                                                    <div class = "row desc">
-                                                        <p class="title">sdgfh</p>
-                                                        <p class="det">wdehf</p>
-                                                        <p class="det">
-                                                        </p>
-                                                        <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View</button>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                            </form>
-                                       
-                                            <form>
-                                                <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
-                                                    <div class="row image">
-                                                        <span><img class="img-responsive" style="width:100%; height: 50%;" src = "image3.jpg"></span>
-                                                        <div class = "row desc">
-                                                            <p class="title">sdgfh</p>
-                                                            <p class="det">wdehf</p>
-                                                            <p class="det">
-                                                            </p>
-                                                            <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View</button>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                                </form>
-                                        
-                                                <form>
-                                                    <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
-                                                        <div class="row image">
-                                                            <span><img class="img-responsive" style="width:100%; height: 50%;" src = "image4.jpg"></span>
-                                                            <div class = "row desc">
-                                                                <p class="title">sdgfh</p>
-                                                                <p class="det">wdehf</p>
-                                                                <p class="det">
-                                                                </p>
-                                                                <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View</button>
-                                                            </div>
-                                                            
-                                                        </div>
-                                                    </div>
-                                                    </form>
+                                            </form>'; }
+                                            ?>
+                                                
+
                                        
                         
                                         <div class="col-sm-1 blank"></div>
@@ -357,4 +321,3 @@
         </div>   
     </body>
 </html>
-*/
