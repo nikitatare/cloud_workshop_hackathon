@@ -1,0 +1,21 @@
+body {
+
+  background-color: pink;
+}
+
+p, ol {
+    
+    text-align: left;
+    font-family: "times new roman";
+    color: Orange;
+    font-size: 45;
+}
+
+h1 {
+    
+    margin-left: 40px;
+    text-align: center;
+    font-size: 100;
+    font-family: "times new roman";
+    color: Tomato;
+}
