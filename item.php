@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+
+<?php
+          $username = "root";
+          $password = "";
+          $database = "food_shop";
+          $con = mysqli_connect("localhost",$username,$password,$database);
+     if(!$con){
+         die("Connection failed: ".mysqli_connect_error());
+     }
+    
+  ?>
+ <!DOCTYPE html>
 <html>
     <head>
         <title>Food Shop</title>
@@ -20,8 +31,9 @@
                 background-position: bottom;
             }
             .bgimg{
-                background-image: url('image.jpg');
-                height: 300px;
+                background-image: url('title1.jpg');
+                height: 200px;
+            } 
             } 
             .title{
                 font-size:18px;
@@ -37,7 +49,8 @@
             }
             .col-sm-2{
                 margin: 5px;
-                height: 270px;
+                height: 700px;
+                width: 100%;
             }
             .image{
                 height: 300px;
@@ -62,7 +75,7 @@
             }
             .tile{
                 background-color: white;
-                /* margin-bottom: 75px; */
+             
                 padding-left: 27px;
                 padding-right: 27px;
                 padding-top: 12px;
@@ -110,21 +123,12 @@
                 border-radius:3px;
                 font-size:16px;
             }
-            .btn btn-primary det{
-                background-color:rgb(196, 21, 212);
-            }
+            
             .loginbtn:hover{
                 color:rgb(196, 21, 212);
                 background-color:rgb(196, 21, 212);
             }
 
-            /* .log{
-                height: 2.5em;
-                width: 5em;
-                background: none;
-                border: solid 1px black;
-                color: black;
-            } */
             .affix {
       			top: 0;
       			width: 100%;
@@ -143,7 +147,7 @@
             }
             a{
                 color:black;
-                /* text-decoration:none; */
+                // text-decoration:none; 
             }
             a:hover{
                 text-decoration:none;
@@ -155,7 +159,7 @@
 
           
             
-        /*jssor slider loading skin spin css*/
+        //jssor slider loading skin spin css
         .jssorl-009-spin img {
             animation-name: jssorl-009-spin;
             animation-duration: 1.6s;
@@ -168,14 +172,14 @@
             to { transform: rotate(360deg); }
         }
 
-        /*jssor slider bullet skin 057 css*/
+        //jssor slider bullet skin 057 css
         .jssorb057 .i {position:absolute;cursor:pointer;}
         .jssorb057 .i .b {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;}
         .jssorb057 .i:hover .b {stroke-opacity:.7;}
         .jssorb057 .iav .b {stroke-opacity: 1;}
         .jssorb057 .i.idn {opacity:.3;}
 
-        /*jssor slider arrow skin 073 css*/
+        //jssor slider arrow skin 073 css
         .jssora073 {display:block;position:absolute;cursor:pointer;}
         .jssora073 .a {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;}
         .jssora073:hover {opacity:.8;}
@@ -209,14 +213,14 @@
             <p class="txt">The biggest online food store!</p> 
         
         
-            <nav id="navb" data-spy="affix" data-offset-top="280" class="navbar navbar-inverse" >
+            <nav id="navb" data-spy="affix" data-offset-top="600" class="navbar navbar-inverse" >
                 <div class="container-fluid">
                     <span class="text-danger">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#">Foodies</a>
                         </div>
                         <ul class="nav navbar-nav" style="text-indent:0%">
-                            <li class=""><a href="second.php">Home</a></li>
+                            <li class=""><a href="test.php">Home</a></li>
                             <li class="dropdown"><a   href="#">Menu <span class="caret"></span></a>
                             </li>
                             
@@ -228,7 +232,7 @@
 
                             
                         </ul>
-                        <form class="navbar-form navbar-left" action="booksearch.php" method="get">
+                        <form class="navbar-form navbar-left" action="items.php" method="get">
                             <div class="form-group">
                               <input type="text" class="form-control" name="searchquery" placeholder="Type here!">
                             </div>
@@ -258,85 +262,41 @@
 
 
 
-<div id="demo" class="carousel slide" data-ride="carousel">
+<div>
 
   <!-- Indicators -->
-                     <div>
+                    <div>
                         <br>
                                                 
-                                    <div class="row vertical-dist-between-tiles">';
-                      
+                       
+                        <div style="background-color: white; color:black">
+                           
+                                            <div >
+                                                <!--<span><img class="img-responsive" src ="<?php echo $row["imgUrl"]; ?> "></span> -->
+                                                    <span><img class="img-responsive" src ="title.jpg"></span>
+                                                    <div  >
+                                                <h3>Description</h3>
+                                                <p>creamy saegdehe
+                                                    wtejehe
+                                                    ehetgfehjf
+                                                    edegfrhf<?php echo $row["description"];  ?></p>
+                                                    <hr> 
+                                                <div class="row desc">
+                                                    <p class="title">margharita pizza  <?php echo $row["item_sname"];  ?> </p>
+                                                    <p class="det">1000<?php echo $row["cost"];  ?></p>
+                                                    <p class="det"></p>
+                                                </div>
+                                                
+                                            </div>  
+                                            </div>
+                                            
+                                           
+                                            </div>            
+
                                    
-                                        
-                                        <form>
-                                            <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
-                                                <div class="row image">
-                                                    <span><img class="img-responsive" style="width:100%; height: 50%;" src = "image1.jpeg"></span>
-                                                    <div class = "row desc">
-                                                        <p class="title">sdgfh</p>
-                                                        <p class="det">wdehf</p>
-                                                        <p class="det">
-                                                        </p>
-                                                        <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View</button>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                            </form>
-                                    
-                                            <form>
-                                            <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
-                                                <div class="row image">
-                                                    <span><img class="img-responsive" style="width:100%; height: 50%;" src = "imaage2.jpg"></span>
-                                                    <div class = "row desc">
-                                                        <p class="title">sdgfh</p>
-                                                        <p class="det">wdehf</p>
-                                                        <p class="det">
-                                                        </p>
-                                                        <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View</button>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                            </form>
-                                       
-                                            <form>
-                                                <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
-                                                    <div class="row image">
-                                                        <span><img class="img-responsive" style="width:100%; height: 50%;" src = "image3.jpg"></span>
-                                                        <div class = "row desc">
-                                                            <p class="title">sdgfh</p>
-                                                            <p class="det">wdehf</p>
-                                                            <p class="det">
-                                                            </p>
-                                                            <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View</button>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                                </form>
-                                        
-                                                <form>
-                                                    <div class="col-sm-2 tile" name="bookID" type="submit" value="'.$bid.'" >
-                                                        <div class="row image">
-                                                            <span><img class="img-responsive" style="width:100%; height: 50%;" src = "image4.jpg"></span>
-                                                            <div class = "row desc">
-                                                                <p class="title">sdgfh</p>
-                                                                <p class="det">wdehf</p>
-                                                                <p class="det">
-                                                                </p>
-                                                                <button style="width:240px;margin-left:-17px;" class="btn btn-primary det" type="submit" name="bookID" value="'.$bid.'">View</button>
-                                                            </div>
-                                                            
-                                                        </div>
-                                                    </div>
-                                                    </form>
-                                       
-                        
-                                        <div class="col-sm-1 blank"></div>
              
-                                    </div>
-          
+                           
+                            </div>
                     </div>      
 
                     <div>
@@ -354,3 +314,5 @@
         </div>   
     </body>
 </html>
+
+

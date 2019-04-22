@@ -29,8 +29,9 @@
                 background-size: cover;
                 background-position: bottom;
             }
+            
             .bgimg{
-                background-image: url('image.jpg');
+                background-image: url('title1.jpg');
                 height: 300px;
             } 
             .title{
@@ -321,3 +322,4 @@
         </div>   
     </body>
 </html>
+
